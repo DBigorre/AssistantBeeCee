@@ -1,4 +1,5 @@
-class LinkController < ApplicationController
+class LinksController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def index
     @links = Link.all
