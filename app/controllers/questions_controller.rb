@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-  skip_before_action :authenticate_user!
 
   def index
     if params[:query].present?
@@ -21,8 +20,7 @@ class QuestionsController < ApplicationController
       @question = Question.new(question_params)
       @question.save
       redirect_to questions_path
-   end
-
+    end
   end
 
   def edit
