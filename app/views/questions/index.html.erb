@@ -1,6 +1,24 @@
 <% if current_user.admin? %>
+
+<h1> Les questions sans réponses des utilisateurs</h1>
+
+<% @questions.each do |question|  %>
+  <% if question.linked? == false %>
+      <p> La question  <p>
+      <p><%= question.query %></p>
+    <% end %>
+<% end %>
+
    
-   coucou admin
+  <h1> Les questions des utilisateurs</h1>
+
+ <% @questions.each do |question|  %>
+  <p> La question  <p>
+  <p><%= question.query %></p>
+  <p> L'url  <p>
+  <p><%= question.link.url %></p>
+  <% end %>
+
 
 
 
