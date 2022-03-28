@@ -35,6 +35,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:url)
+    params.require(:question).permit(:query)
   end
 end
