@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Home</h1>
+<p>Posez-moi une question</p>
+
+<%= form_tag questions_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Votre question"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>

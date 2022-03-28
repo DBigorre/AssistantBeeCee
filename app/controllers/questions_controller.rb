@@ -2,7 +2,11 @@ class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @questions = Question.all
+    if params[:query].present?
+      @questions = Question.where("query ILIKE ?", "%#{params[:query]}%")
+    else
+      @questions = Question.all
+    end
   end
 
   def new
