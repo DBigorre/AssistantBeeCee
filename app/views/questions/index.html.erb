@@ -1,1 +1,8 @@
-Hello index questions
+<h1> Index des questions </h1>
+
+<% @questions.each do |question|  %>
+<p><%= question.query %></p>
+<p>linked? = <%= question.linked %></p>
+<% end %>
+
+<% console %>
