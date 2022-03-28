@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
       redirect_to @question.link.url
     else
       @question = Question.new(question_params)
+    #comment
       @question.save
       redirect_to questions_path
    end
