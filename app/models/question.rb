@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
   belongs_to :link
   before_validation :to_ascii
+  before_validation :linked
 
   include PgSearch::Model
   pg_search_scope :search_by_query,
@@ -11,5 +12,13 @@ class Question < ApplicationRecord
 
   def to_ascii
     self.query = ActiveSupport::Inflector.transliterate(query).to_s
+  end
+
+  def linked
+    if self.link_id == 'link0'
+      self.linked = false
+    else
+      self.linked = true
+    end
   end
 end

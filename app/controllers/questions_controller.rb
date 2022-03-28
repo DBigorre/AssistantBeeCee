@@ -32,6 +32,7 @@ class QuestionsController < ApplicationController
     @question.destroy
   end
 
+
   private
   def question_params
     params.require(:question).permit(:url)
