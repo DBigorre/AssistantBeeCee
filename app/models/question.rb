@@ -15,9 +15,7 @@ class Question < ApplicationRecord
   end
 
   def linked
-    link0 = Link.where(url: nil).first
-    if self.link == nil
-      self.link = link0
+    if self.link_id == 'link0'
       self.linked = false
     else
       self.linked = true

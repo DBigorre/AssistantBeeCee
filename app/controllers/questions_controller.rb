@@ -14,14 +14,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
-    if @question
-      redirect_to @question.link.url
-    else
-      @question = Question.new(question_params)
-      @question.save
-      redirect_to questions_path
-   end
+    @question = Question.new(params[:question])
+    @question.save
   end
 
   def edit
@@ -30,7 +24,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    @question.update(question_params)
+    @question.update(params[:question])
   end
 
   def destroy
@@ -41,6 +35,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:query)
+    params.require(:question).permit(:url)
   end
 end
