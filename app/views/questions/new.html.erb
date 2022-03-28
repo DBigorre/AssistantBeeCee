@@ -1,11 +1,6 @@
 <p>Posez-moi une question</p>
 
-<%= form_tag questions_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Votre question"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+<%= simple_form_for(@question) do |f| %>
+  <%= f.input :query %>
+  <%= f.submit %>
 <% end %>
-

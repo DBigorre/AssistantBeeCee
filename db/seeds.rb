@@ -6,6 +6,10 @@
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
 
+p "destroy all"
+Question.destroy_all
+Link.destroy_all
+
 p "creating links..."
 
 link0 = Link.create!(url: nil)
@@ -17,10 +21,10 @@ link4 = Link.create!(url: "http://www.lewagon.com")
 p "#{link4.url}"
 p "creating questions..."
 
-question1 = Question.create!(linked: false, query: "Comment allez-vous ?", link_id: link1)
-question2 = Question.create!(linked: false, query: "Combien d'employés avez-vous ?", link_id: link1)
-question3 = Question.create!(linked: false, query: "Recrutez-vous un chef de projet ?", link_id: link1)
-question4 = Question.create!(linked: false, query: "Où sont vos locaux ?", link_id: link1)
+question1 = Question.create!(linked: false, query: "Comment allez-vous ?", link: link1)
+question2 = Question.create!(linked: false, query: "Combien d'employés avez-vous ?", link: link1)
+question3 = Question.create!(linked: false, query: "Recrutez-vous un chef de projet ?", link: link1)
+question4 = Question.create!(linked: false, query: "Où sont vos locaux ?", link: link1)
 
 p "#{question4.query}"
 p "finished!"
