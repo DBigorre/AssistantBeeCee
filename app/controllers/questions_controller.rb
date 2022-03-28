@@ -19,10 +19,10 @@ class QuestionsController < ApplicationController
       redirect_to @question.link.url
     else
       @question = Question.new(question_params)
-    #comment
       @question.save
       redirect_to questions_path
    end
+
   end
 
   def edit
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    @question.update(question_params)
+    @question.update(params[:question])
   end
 
   def destroy
