@@ -4,6 +4,7 @@
   <%= f.input :query %>
   <%= f.simple_fields_for :link do |l| %>
     <%= l.input :url %>
+     <%= f.input :tag_list, as: :check_boxes, collection: [ "Localisation", "Horaires", "Collaborateurs", "Métiers", "Réseaux Sociaux", "Clients", "Site web", "Evenement", "Recrutement", "Contact"] %>
   <% end %>
   <%= f.submit %>
 

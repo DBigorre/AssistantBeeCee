@@ -2,5 +2,6 @@
 
 <%= simple_form_for(@link) do |f| %>
   <%= f.input :url %>
+   <%= f.input :tag_list, as: :check_boxes, collection: [ "Localisation", "Horaires", "Collaborateurs", "Métiers", "Réseaux Sociaux", "Clients", "Site web", "Evenement", "Recrutement", "Contact"] %>
   <%= f.submit %>
 <% end %>

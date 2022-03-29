@@ -3,6 +3,7 @@ class LinksController < ApplicationController
 
   def index
     @links = Link.all
+    
   end
 
   def new
@@ -33,8 +34,16 @@ class LinksController < ApplicationController
     @link.destroy
   end
 
+  def tagged
+    if params[:tag].present?
+      @links = Link.tagged_with(params[:tag])
+    else
+      @links = Link.all
+    end
+  end
+
   private
   def link_params
-    params.require(:link).permit(:url)
+    params.require(:link).permit(:url, tag_list: [])
   end
 end
