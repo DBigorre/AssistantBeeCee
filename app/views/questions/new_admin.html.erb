@@ -1,0 +1,9 @@
+<p>Créer une nouvelle question</p>
+
+<%= simple_form_for(@question) do |f| %>
+  <%= f.input :query %>
+  <%#= f.association :link, collection: Link.all.map{|i| i.url}, value: %>
+  <%= f.association :link, label_method: :url %>
+  <%= f.submit %>
+
+<% end %>

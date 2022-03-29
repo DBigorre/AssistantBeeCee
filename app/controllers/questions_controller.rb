@@ -12,6 +12,10 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def new_admin
+    @question = Question.new
+  end
+
   def create
     @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
     if @question
@@ -40,6 +44,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:query)
+    params.require(:question).permit(:query, :link_id)
   end
 end
