@@ -1,0 +1,7 @@
+<h1>Nous n'avons pas trouvé de réponse exacte à votre question</h1>
+
+<h2>Nos suggestions :</h2>
+ <% @questions.each do |question|  %>
+  <p><%= question.query %></p>
+<% end %>
+<%# Ajouter des blocs de suggestion avec les tags%>

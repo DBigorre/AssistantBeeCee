@@ -10,8 +10,13 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(params[:link])
+    @link = Link.new(link_params)
     @link.save
+    if @link.save
+      redirect_to links_path
+    else
+      render Link.new
+    end
   end
 
   def edit
