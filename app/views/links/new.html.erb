@@ -1,2 +1,6 @@
-coucou new
+<p>Ajoutez un lien</p>
 
+<%= simple_form_for(@link) do |f| %>
+  <%= f.input :url %>
+  <%= f.submit %>
+<% end %>

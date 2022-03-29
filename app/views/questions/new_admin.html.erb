@@ -2,8 +2,9 @@
 
 <%= simple_form_for(@question) do |f| %>
   <%= f.input :query %>
-  <%#= f.association :link, collection: Link.all.map{|i| i.url}, value: %>
-  <%= f.association :link, label_method: :url %>
+  <%= f.simple_fields_for :link do |l| %>
+    <%= l.input :url %>
+  <% end %>
   <%= f.submit %>
 
 <% end %>

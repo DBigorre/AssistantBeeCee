@@ -2,6 +2,7 @@ class Question < ApplicationRecord
   belongs_to :link
   before_validation :to_ascii
   before_validation :linked
+  #accepts_nested_attributes_for :link
 
   include PgSearch::Model
   pg_search_scope :search_by_query,

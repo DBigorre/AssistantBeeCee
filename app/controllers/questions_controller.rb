@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :new, :create, :index, :answer]
 
   def index
     if params[:query].present?
@@ -14,6 +15,7 @@ class QuestionsController < ApplicationController
 
   def new_admin
     @question = Question.new
+    @link = Link.new
   end
 
   def create
@@ -22,8 +24,19 @@ class QuestionsController < ApplicationController
       redirect_to @question.link.url
     else
       @question = Question.new(question_params)
-      @question.save
-      redirect_to questions_path
+      @link = params[:question][:link][:url]
+      if Link.find_by(url: @link)
+        @question.link = Link.find_by(url: @link)
+      else
+        @newlink = Link.create!(url: @link)
+        @question.link = @newlink
+      end
+      @question.save!
+        if current_user != nil
+          redirect_to questions_path
+        else
+          redirect_to questions_answer_path
+        end
     end
   end
 
@@ -41,6 +54,9 @@ class QuestionsController < ApplicationController
     @question.destroy
   end
 
+  def answer
+    @questions = Question.all
+  end
 
   private
   def question_params
