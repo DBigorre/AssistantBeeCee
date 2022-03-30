@@ -1,0 +1,14 @@
+<nav>
+  <% if user_signed_in? %>
+    <%= link_to destroy_user_session_path, :method => :delete  do %>
+     <i class="fa-solid fa-circle-user"></i>
+    <% end %>
+    <%#= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true } %>
+    <a href="/"><i class="fa-solid fa-house"></i></a>
+    <a href="<%= questions_new_admin_path %>"><i class="fa-solid fa-plus"></i></a>
+    <a href="<%= questions_answer_path %>"><i class="fa-solid fa-pen-to-square"></i></a>
+  <% else %>
+    <a href="<%=new_user_session_path %>"><i class="fa-solid fa-circle-user"></i></a>
+  <%end%>
+    
+</nav>
