@@ -14,38 +14,49 @@
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px
 }
 
-.simple-form {
-  
+.box-login{
+  object-position: center;
 }
 
-.simple-form input {
-  width: 100%;
+.simpleform-admin input {
+  
   display: block;
   border: none;
   outline: none;
   background: none;
   font-size: 1.2rem;
   color: #666;
-  padding: 10px 15px 10px 10px
+}
+
+input#question_tag_list_localisation:hover{
+  background-color: rgba(0, 0, 0, 0.74);
+
+}
+
+.box-login:checked {
+  box-shadow: inset 8px 8px 8px #adb5bd, inset -8px -8px 8px 
 }
 
 input{
   padding-left: 10px;
   margin-bottom: 20px;
   border-radius: 20px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px rgba(255, 255, 255, 0)
 }
 
-.simple-form .submit {
+.simpleform-admin .submit {
   box-shadow: none;
   width: 100%;
   height: 40px;
-  background-color: #03A9F4;
+  background-color: #020608;
   color: #fff;
   border-radius: 25px;
   box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
   letter-spacing: 1.3px
 }
-.simple-form .submit:hover {
-  background-color: #039BE5
+
+.form-check-input:checked {
+  background-color: #000000a9;
+  box-shadow:inset 8px 8px 8px #1b1d1fc7 ;
 }
+

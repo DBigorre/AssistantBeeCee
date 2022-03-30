@@ -1,6 +1,6 @@
 <div class="box-login">
   <p>Créer une nouvelle question</p>
-  <div class="simpleform">
+  <div class="simpleform-admin">
     <%= simple_form_for(@question) do |f|  %>
       <%= f.input :query %>
       <%= f.simple_fields_for :link do |l| %>
