@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :questions, except: [:show]
   get "questions/new_admin", to: "questions#new_admin"
   get "questions/answer", to: "questions#answer"
+  
 end

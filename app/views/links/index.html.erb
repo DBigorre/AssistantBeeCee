@@ -1,5 +1,15 @@
 <h1> Index des liens de redirection </h1>
 
+
+
+
 <% @links.each do |link|  %>
 <p><%=  link.url  %></p>
+  <p> 
+    <% link.tag_list.each do |tag| %>
+    <%= link_to tag, tagged_path(tag: tag) %>
+    <% end %>
+  </p>
 <% end %>
+
+
