@@ -53,10 +53,16 @@ input{
   border-radius: 25px;
   box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
   letter-spacing: 1.3px
+  
 }
 
 .form-check-input:checked {
   background-color: #000000a9;
   box-shadow:inset 8px 8px 8px #1b1d1fc7 ;
+}
+
+h4{
+  font-size: 19px;
+  font-weight: bold;
 }
 
