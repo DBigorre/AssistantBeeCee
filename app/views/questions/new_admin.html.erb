@@ -1,11 +1,14 @@
-<p>Créer une nouvelle question</p>
+<div class="box-login">
+  <h4>Vous pouvez créer une question</h4>
+  <div class="simpleform-admin">
+    <%= simple_form_for(@question) do |f|  %>
+      <%= f.input :query, placeholder: "nouvelle question", label:false %>
+      <%= f.simple_fields_for :link do |l| %>
+        <%= l.input :url, placeholder: "nouvelle url", label:false%>
+        <%= f.input :tag_list, as: :check_boxes,  collection: [ "Localisation", "Horaires", "Collaborateurs", "Métiers", "Réseaux Sociaux", "Clients", "Site web", "Evenement", "Recrutement", "Contact"], label:false%>
+      <% end %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
 
-<%= simple_form_for(@question) do |f| %>
-  <%= f.input :query %>
-  <%= f.simple_fields_for :link do |l| %>
-    <%= l.input :url %>
-     <%= f.input :tag_list, as: :check_boxes, collection: [ "Localisation", "Horaires", "Collaborateurs", "Métiers", "Réseaux Sociaux", "Clients", "Site web", "Evenement", "Recrutement", "Contact"] %>
-  <% end %>
-  <%= f.submit %>
-
-<% end %>
