@@ -2,8 +2,12 @@ class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :new, :create, :index, :answer]
 
   def index
-    if params[:query].present?
-      @questions = Question.where("query ILIKE ?", "%#{params[:query]}%")
+    if params[:search].present?
+      query = " \
+        questions.query ILIKE :search \
+        OR links.url ILIKE :search \
+        "
+      @questions = Question.joins(:link).where(query, search: "%#{params[:search]}%")
     else
       @questions = Question.all
     end
