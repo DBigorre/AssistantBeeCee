@@ -1,2 +1,27 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.container-home {
+  display: flex;
+  justify-content: flex-start;
+  justify-content: space-evenly;
+  background: $light-gray;
+  padding-top: 10px;
+}
+
+.btn {
+  background-color: white;
+  border-color: #17a2b8;
+  border-width: 1px;
+  color: #17a2b8;
+}
+
+.form-row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.header  {
+  margin-left: 100px;
+  padding-top: 10px;
+}
