@@ -1,29 +1,73 @@
+
 <% if current_user != nil %>
+                      <div class="header">
+    <h3> Bienvenue dans l'administration de l'Assistant Beecee</h3>
+  </div>
 
-<h1> Les questions sans réponses des utilisateurs</h1>
 
+  <div class="container-home">
+    <div class="form-row align-items-center">
+      <form class="row mt-4" action="/questions" accept-charset="UTF-8" method="get">
+        <div class="col-12 col-md-12 offset-md-1">
+          <input type="text" name="question" id="question" value="" class="form-control" placeholder="Cherchez par question, url ou tag">
+        </div>
+        <div class="col-12 col-md-auto">
+            <input type="submit" name="commit" value="Chercher" class="btn" data-disable-with="Search">
+        </div>
+      </form>
+    </div>
+
+    <form>
+      <div class="form-row align-items-center">
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Filtrer par</option>
+            <option value="1">Les dernières questions posées</option>
+            <option value="2">Les questions sans liens</option>
+            <option value="3">Les questions sans tags </option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container-fluid">
+      <div class="row justify-content-md-center">
+          <div class="col-12 col-md-4 offset-md-1">
+            QUESTION
+              <% @questions.each do |question|  %>
+                <p><%= question.query %></p>
+              <% end %>
+          </div>
+          <div class="col-sm">
+            LIEN
+          </div>
+          <div class="col-sm">
+            TAGS
+          </div>
+      </div>
+  </div>
+
+<%#Pour les filtres%>
+
+<%# @questions.each do |question|  %>
+  <%# if question.linked? == false %>
+    <%#  <p><%= question.query %>
+    <%# question.link.url %>
+    <%# end %>
+<%# end %>
+
+<% else %>
+
+ <h3> Nous n'avons pas trouvé de réponse à votre question "#{@question.query}"</h3>
+
+<p>Nos suggestions :</p>
+
+<%# @questions.last + @questions.last.link.url %>
+<%# peut-on trouver des tags liés à cette question ? Si oui, proposer des tags et des questions associées %>
 <% @questions.each do |question|  %>
-  <% if question.linked? == false %>
-      <p> La question  <p>
-      <p><%= question.query %></p>
+    <p> <%= @question.query %> </p>
+    <% @question.link.url %>
     <% end %>
 <% end %>
 
-   
-  <h1> Les questions des utilisateurs</h1>
 
- <% @questions.each do |question|  %>
-  <p> La question  <p>
-  <p><%= question.query %></p>
-  <p> L'url  <p>
-  <p><%= question.link.url %></p>
-  <% end %>
-
-<% else %>
-  <h1> Index des questions </h1>
-
-  <% @questions.each do |question|  %>
-  <p><%= question.query %></p>
-  <p>linked? = <%= question.linked %></p>
-  <% end %>
-<% end %>
