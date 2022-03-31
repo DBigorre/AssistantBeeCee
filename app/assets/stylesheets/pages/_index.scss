@@ -1,19 +1,14 @@
 // Import page-specific CSS files here.
-@import "home";
-
 .container-home {
-  display: flex;
-  justify-content: flex-start;
-  justify-content: space-evenly;
   background: $light-gray;
   padding-top: 10px;
+  margin-right: 0px;
 }
 
-.btn {
-  background-color: white;
-  border-color: #17a2b8;
-  border-width: 1px;
-  color: #17a2b8;
+.intro {
+  display: flex;
+  justify-content: left;
+  justify-content: space-evenly;
 }
 
 .form-row {
@@ -21,12 +16,67 @@
   margin-bottom: 10px;
 }
 
-.header  {
-  margin-left: 100px;
+.header {
+  margin-left: 70px;
   padding-top: 10px;
 }
 
-.formulaire-search{
+.formulaire-search {
   display: flex;
   color: red;
+}
+
+.grille {
+  justify-content: left;
+  justify-content: space-evenly;
+  margin-left: 55px;
+  display: flex;
+  margin-right: 0px;
+}
+
+.col {
+  border-color: black;
+  border-right: 3px;
+  margin-top: 20px;
+}
+
+.btn-blue {
+  border-radius: 2px;
+  border-color: #17a2b8;
+  border-width: 3px;
+}
+
+.link {
+  width: 250px;
+  height: 400px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid grey;
+}
+
+.question {
+  width: 220px;
+  height: 400px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid grey;
+}
+
+.tags {
+  width: 150px;
+  height: 400px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.buttons-table {
+  width: 220px;
+  height: 400px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 0px;
 }

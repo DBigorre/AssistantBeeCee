@@ -1,19 +1,44 @@
-<div class="container">
-<%= form_tag questions_path, method: :get do %>
-  <%= text_field_tag :search,
-    params[:search], class: "form-control", placeholder: "Find a movie" %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-  <div class="row justify-content-center">
-    <div class="col-sm-8">
-      <div id="questions">
-        <% @questions.each do |question| %>
-          <h4><%= question.query %></h4>
-          <p><%= question.link.url %></p>
+<div class="header">
+  <h3> Bienvenue dans l'administration de l'Assistant Beecee</h3>
+</div>
 
+
+<div class="container-home">
+  <div class="intro">
+      <%= form_tag questions_path, method: :get do %>
+        <%= text_field_tag :search,
+          params[:search], class: "form-control", placeholder: "Find a movie" %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+
+  <div class="grille">
+    <div class="question">
+        QUESTION
+        <% @questions.each do |question| %>
+          <p><%= question.query %></p>
+          <% end %>
+    </div>
+
+    <div class="link">
+        LINK
+        <% @questions.each do |question| %>
+          <p><%= question.link.url %></p>
         <% end %>
-      </div>
+    </div>
+
+    <div class="tags">
+        TAGS
+      <% @questions.each do |question| %>
+        <p> tag 1</p>
+      <% end %>
+    </div>
+
+     <div class="buttons-table">
+      <% @questions.each do |question| %>
+        <button type="button" class="btn">Delete</button>
+        <button type="button" class="btn">Edit</button>
+      <% end %>
     </div>
   </div>
 </div>
-
