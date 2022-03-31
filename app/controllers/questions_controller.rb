@@ -24,7 +24,12 @@ class QuestionsController < ApplicationController
       redirect_to @question.link.url
     else
       @question = Question.new(question_params)
-      @link = params[:question][:link][:url]
+      if params[:link] == nil
+        @question.link_id = 'link0_id'
+      end
+      if current_user != nil
+        @link = params[:question][:link][:url]
+      end
       if Link.find_by(url: @link)
         @question.link = Link.find_by(url: @link)
       else
