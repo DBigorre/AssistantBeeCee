@@ -1,4 +1,4 @@
-* {
+box-login * {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif
@@ -19,7 +19,6 @@
 }
 
 .simpleform-admin input {
-  
   display: block;
   border: none;
   outline: none;
@@ -34,7 +33,7 @@ input#question_tag_list_localisation:hover{
 }
 
 .box-login:checked {
-  box-shadow: inset 8px 8px 8px #adb5bd, inset -8px -8px 8px 
+  box-shadow: inset 8px 8px 8px #adb5bd, inset -8px -8px 8px
 }
 
 input{
@@ -53,7 +52,7 @@ input{
   border-radius: 25px;
   box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
   letter-spacing: 1.3px
-  
+
 }
 
 .form-check-input:checked {
@@ -65,4 +64,3 @@ h4{
   font-size: 19px;
   font-weight: bold;
 }
-
