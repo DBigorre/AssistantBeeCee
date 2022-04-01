@@ -1,43 +1,55 @@
-<div class="header">
-  <h3> Bienvenue dans l'administration de l'Assistant Beecee</h3>
-</div>
-
-
 <div class="container-home">
+  <div class="header">
+    <h3> Bienvenue dans l'administration de l'Assistant Beecee</h3>
+  </div>
+
   <div class="intro">
+    <div class="col-4">
       <%= form_tag questions_path, method: :get do %>
         <%= text_field_tag :search,
-          params[:search], class: "form-control", placeholder: "Find a movie" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+          params[:search], class: "form-control", placeholder: "Cherchez par question ou par url" %>
+      </div>
+      <div class="mt-4">
+        <%= submit_tag "Rechercher", class: "recherche-admin" %>
+      </div>
       <% end %>
   </div>
 
   <div class="grille">
-    <div class="question">
-        QUESTION
-        <% @questions.each do |question| %>
-          <p><%= question.query %></p>
-          <% end %>
-    </div>
+      <div class="titres">
+            <div class="col-4">
+              <p> QUESTION </p>
+            </div>
+            <div class="col-4">
+              <p> LIEN</p>
+            </div>
+            <div class="col-2">
+              <p> TAGS</p>
+            </div>
+      </div>
+  <% @questions.each do |question| %>
+    <div class="ligne">
+          <div class="col-4">
+            <%= question.query %>
+          </div>
+          <div class="col-4">
+            <%= question.link.url %>
+          </div>
+          <div class="col-2">
+            <%= question.tag_list %>
+          </div>
+          <div class="col-2">
+            <%= link_to question_path(question),
+                        method: :delete,
+                        data: { confirm: 'Are you sure ?' } do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+             <%= link_to edit_question_path(question) do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+          </div>
+        </div>
 
-    <div class="link">
-        LINK
-        <% @questions.each do |question| %>
-          <p><%= question.link.url %></p>
-        <% end %>
-    </div>
-
-    <div class="tags">
-        TAGS
-      <% @questions.each do |question| %>
-        <p> tag 1</p>
-      <% end %>
-    </div>
-
-     <div class="buttons-table">
-      <% @questions.each do |question| %>
-        <button type="button" class="btn">Delete</button>
-        <button type="button" class="btn">Edit</button>
       <% end %>
     </div>
   </div>

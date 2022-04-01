@@ -1,14 +1,14 @@
 // Import page-specific CSS files here.
 .container-home {
-  background: $light-gray;
+  background: #f4f4f4;
   padding-top: 10px;
   margin-right: 0px;
 }
 
 .intro {
   display: flex;
-  justify-content: left;
-  justify-content: space-evenly;
+  margin-left: 70px;
+  margin-top: 20px;
 }
 
 .form-row {
@@ -21,62 +21,47 @@
   padding-top: 10px;
 }
 
-.formulaire-search {
-  display: flex;
-  color: red;
+.grille {
+  display: flex table-column;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin-left: 70px;
+  margin-right: 70px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 30px;
+  border-radius: 2px;
 }
 
-.grille {
-  justify-content: left;
-  justify-content: space-evenly;
-  margin-left: 55px;
+.ligne {
   display: flex;
-  margin-right: 0px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: solid 0.5px lightgray;
+  padding-bottom: 20px;
+}
+
+.titres {
+  display: flex;
+  border-bottom: solid 0.5px lightgray;
 }
 
 .col {
-  border-color: black;
-  border-right: 3px;
-  margin-top: 20px;
 }
 
-.btn-blue {
+.recherche-admin {
+  background: #17a2b8;
+  color: white;
+  padding: 10px;
+  border: none;
   border-radius: 2px;
-  border-color: #17a2b8;
-  border-width: 3px;
 }
 
-.link {
-  width: 250px;
-  height: 400px;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-right: 1px solid grey;
+.fa-solid {
+  color: #C2C8D1;
 }
 
-.question {
-  width: 220px;
-  height: 400px;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-right: 1px solid grey;
-}
-
-.tags {
-  width: 150px;
-  height: 400px;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.buttons-table {
-  width: 220px;
-  height: 400px;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 0px;
+.mt {
+  margin-top: none;
 }

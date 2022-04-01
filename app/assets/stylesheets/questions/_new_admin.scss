@@ -36,7 +36,7 @@ input#question_tag_list_localisation:hover{
   box-shadow: inset 8px 8px 8px #adb5bd, inset -8px -8px 8px
 }
 
-input{
+.box-login input {
   padding-left: 10px;
   margin-bottom: 20px;
   border-radius: 20px;
@@ -52,7 +52,6 @@ input{
   border-radius: 25px;
   box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
   letter-spacing: 1.3px
-
 }
 
 .form-check-input:checked {
