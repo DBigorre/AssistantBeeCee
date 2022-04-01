@@ -3,21 +3,18 @@ box-login * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif
 }
-
-.box-login {
+.box-login{
   width: 350px;
   margin-left: auto;
   margin-right: auto;
   padding: 40px 30px 30px 30px;
-  background-color: #ecf0f3;
+  background-color: #ECF0F3;
   border-radius: 15px;
-  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px
+  box-shadow: 13px 13px 20px #CBCED1, -13px -13px 20px
 }
-
 .box-login{
   object-position: center;
 }
-
 .simpleform-admin input {
   display: block;
   border: none;
@@ -26,23 +23,18 @@ box-login * {
   font-size: 1.2rem;
   color: #666;
 }
-
-input#question_tag_list_localisation:hover {
+input#question_tag_list_localisation:hover{
   background-color: rgba(0, 0, 0, 0.74);
-
 }
-
 .box-login:checked {
-  box-shadow: inset 8px 8px 8px #adb5bd, inset -8px -8px 8px
+  box-shadow: inset 8px 8px 8px #ADB5BD, inset -8px -8px 8px
 }
-
 .box-login input {
   padding-left: 10px;
   margin-bottom: 20px;
   border-radius: 20px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px rgba(255, 255, 255, 0)
+  box-shadow: inset 8px 8px 8px #CBCED1, inset -8px -8px 8px rgba(255, 255, 255, 0)
 }
-
 .simpleform-admin .submit {
   box-shadow: none;
   width: 100%;
@@ -50,16 +42,14 @@ input#question_tag_list_localisation:hover {
   background-color: #020608;
   color: #fff;
   border-radius: 25px;
-  box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+  box-shadow: 3px 3px 3px #B1B1B1, -3px -3px 3px #fff;
   letter-spacing: 1.3px
 }
-
 .form-check-input:checked {
   background-color: #000000a9;
-  box-shadow:inset 8px 8px 8px #1b1d1fc7;
+  box-shadow:inset 8px 8px 8px #1b1d1fc7 ;
 }
-
-h4 {
+h4{
   font-size: 19px;
   font-weight: bold;
 }
