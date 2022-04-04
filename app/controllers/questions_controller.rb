@@ -44,6 +44,7 @@ class QuestionsController < ApplicationController
         if current_user != nil
           redirect_to questions_path
         else
+          #faire la methode recherche par tag ici
           redirect_to questions_answer_path
         end
     end
@@ -64,7 +65,7 @@ class QuestionsController < ApplicationController
   end
 
   def answer
-    @questions = Question.all
+    
   end
 
   private
