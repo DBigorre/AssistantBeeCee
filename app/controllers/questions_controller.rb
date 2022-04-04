@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :new, :create, :index, :answer]
+  skip_before_action :authenticate_user!, only: [ :new, :create, :index, :answer, :ask]
 
   def index
     if params[:search].present?
@@ -19,12 +19,13 @@ class QuestionsController < ApplicationController
 
   def ask
     @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
-    if @question
+    if @question.present?
       redirect_to @question.link.url
     else
       @question = Question.new(question_params)
       if params[:link] == nil
-        @question.link_id = 'link0_id'
+        @newlink = Link.create!(url: questions_answer_path)
+        @question.link = @newlink
       end
       @question.save!
       redirect_to questions_answer_path
