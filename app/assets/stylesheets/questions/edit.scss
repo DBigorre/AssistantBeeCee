@@ -9,6 +9,7 @@ box-login * {
   margin-left: auto;
   margin-right: auto;
   padding: 40px 30px 30px 30px;
+
   background-color: #ecf0f3;
   border-radius: 15px;
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px
@@ -40,6 +41,7 @@ input#question_tag_list_localisation:hover{
   padding-left: 10px;
   margin-bottom: 20px;
   border-radius: 20px;
+
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px rgba(255, 255, 255, 0)
 }
 
@@ -50,6 +52,7 @@ input#question_tag_list_localisation:hover{
   background-color: #020608;
   color: #fff;
   border-radius: 25px;
+
   box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
   letter-spacing: 1.3px
 }
