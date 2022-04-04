@@ -1,13 +1,15 @@
+
 <div class="container-home">
   <div class="header">
     <h3> Bienvenue dans l'Assistant Beecee </h3>
-  </div>
-
-<div class="row">
-<div class="formulairedequestion" width=50%>
-  <%= simple_form_for(@question) do |f| %>
-    <%= f.input :query, placeholder: "Posez votre question", label:false %>
-    <%= f.submit %>
+ </div>
+                 
+<div class="imgformulaire">
+  <div class="formulairebarrederecherche">
+    <%= simple_form_for(@question) do |f| %>
+      <%= f.input :query, label: false, placeholder: "Posez votre question" %>
+      <%= f.button :submit, class: "btn-primary", value: "Rechercher" %>
     <% end %>
-</div>
-</div>
+  </div>
+</div> 
+
