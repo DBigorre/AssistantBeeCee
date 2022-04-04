@@ -7,9 +7,9 @@ class QuestionsController < ApplicationController
         questions.query ILIKE :search \
         OR links.url ILIKE :search \
         "
-      @questions = Question.joins(:link).where(query, search: "%#{params[:search]}%")
+      @questions = Question.joins(:link).where(query, search: "%#{params[:search]}%").order('created_at DESC')
     else
-      @questions = Question.all
+      @questions = Question.all.order('created_at DESC')
     end
   end
 
@@ -57,7 +57,8 @@ end
 
   def update
     @question = Question.find(params[:id])
-    @question.update(params[:question])
+    @question.update(question_link_params)
+    redirect_to questions_path
   end
 
   def destroy
@@ -66,11 +67,16 @@ end
   end
 
   def answer
-    
   end
 
   private
+
   def question_params
     params.require(:question).permit(:query, :link_id, tag_list: [])
   end
+
+  def question_link_params
+    params.require(:question).permit(:query, question: [:link][:url])
+  end
+
 end
