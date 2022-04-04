@@ -1,6 +1,8 @@
-<p>Posez-moi une question</p>
-
-<%= simple_form_for(@question) do |f| %>
-  <%= f.input :query %>
-  <%= f.submit %>
-<% end %>
+<div class="imgformulaire">
+  <div class="formulairebarrederecherche">
+    <%= simple_form_for(@question) do |f| %>
+      <%= f.input :query, label: false, placeholder: "Posez votre question" %>
+      <%= f.button :submit, class: "btn-primary", value: "Rechercher" %>
+    <% end %>
+  </div>
+</div> 
