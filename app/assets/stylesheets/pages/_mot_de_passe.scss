@@ -1,0 +1,32 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.imagedroite {
+  width: 480px;
+  margin-left: 20px;
+}
+
+.formulaire-signup {
+  width: 480px;
+  margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.formulaire-signup input {
+  vertical-align: middle;
+
+  color: #024172;
+  background-color: white;
+}
+
+.btn-primary input:hover {
+  color: whitesmoke;
+  background-color:#024172 ;
+
+}

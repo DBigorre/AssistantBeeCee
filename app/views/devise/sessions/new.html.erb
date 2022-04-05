@@ -1,4 +1,8 @@
-  <h2>Log in</h2>
+<div class=container>
+
+<div class="row">
+  <div class="formulaire-signup" >
+    <h2> Connectez-vous </h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
@@ -17,4 +21,16 @@
 
     </div>
   <% end %>
+  <br>
 <%= render "devise/shared/links" %>
+  </div>
+</div>
+
+ <div class="row">
+    <div class= "imagedroite">
+      <img class="fit-picture"
+        src="https://images.unsplash.com/photo-1468442348891-5e70bc562876?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80"
+        alt="plants">
+      </div>
+  </div>
+</div>
