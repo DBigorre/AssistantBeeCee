@@ -31,7 +31,6 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 30px;
   border-radius: 2px;
-  
 }
 
 .ligne {
@@ -41,7 +40,8 @@
   margin-bottom: 20px;
   border-bottom: solid 0.5px lightgray;
   padding-bottom: 20px;
-  word-wrap: break-word
+  padding-right: 20px;
+  word-wrap: break-word;
 }
 
 .titres {
@@ -49,7 +49,8 @@
   border-bottom: solid 0.5px lightgray;
 }
 
-.col {
+.col-4 {
+  padding-right: 15px;
 }
 
 .recherche-admin {
@@ -64,6 +65,13 @@
   color: #C2C8D1;
 }
 
-.mt {
+.boitebouton {
   margin-top: none;
+  margin-bottom: 30px;
+}
+
+.btn-primary input {
+  color: whitesmoke;
+  background-color:#024172;
+  margin-top: -37px;
 }
