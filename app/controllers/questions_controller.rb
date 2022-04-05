@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
       end
       @question.save!
       redirect_to questions_answer_path
+    end
   end
 
   def new_admin
@@ -67,6 +68,7 @@ end
   end
 
   def answer
+    @questions = Question.all
   end
 
   private
