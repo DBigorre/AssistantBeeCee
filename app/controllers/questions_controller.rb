@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
       end
       @question.save!
       redirect_to questions_answer_path
+    end
   end
 
   def new_admin
@@ -57,7 +58,13 @@ end
 
   def update
     @question = Question.find(params[:id])
-    @question.update(question_link_params)
+    @question.update(question_params)
+    @link = params[:question][:link][:url]
+    @newlink = Link.create!(url: @link)
+    @question.link = @newlink
+    @tag_list = params[:question][:tag_list]
+    @question.tag_list = @tag_list
+    @question.save!
     redirect_to questions_path
   end
 
@@ -67,16 +74,17 @@ end
   end
 
   def answer
+    @questions = Question.all
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:query, :link_id, tag_list: [])
+    params.require(:question).permit(:query, :link_id, :tag_list)
   end
 
   def question_link_params
-    params.require(:question).permit(:query, question: [:link][:url])
+   #params.require(:question).permit(:query, question: [:link][:url])
+   params.permit(:query, :link, :url)
   end
-
 end

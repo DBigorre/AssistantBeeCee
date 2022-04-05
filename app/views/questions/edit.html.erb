@@ -5,8 +5,8 @@
       <%= f.input :query, placeholder: "question à modifier", label:false %>
       <%= f.simple_fields_for(@question.link) do |l| %>
         <%= l.input :url, placeholder: "url à modifier", label:false %>
-        <%= f.input :tag_list, as: :check_boxes,  collection: [ "Localisation", "Horaires", "Collaborateurs", "Métiers", "Réseaux Sociaux", "Clients", "Site web", "Evenement", "Recrutement", "Contact"], label:false%>
       <% end %>
+      <%= f.input :tag_list, as: :check_boxes,  collection: [ "Localisation", "Horaires", "Collaborateurs", "Métiers", "Réseaux Sociaux", "Clients", "Site web", "Evenement", "Recrutement", "Contact"], label:false%>
       <%= f.submit %>
     <% end %>
   </div>
