@@ -10,6 +10,19 @@ class Question < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+  def to_ascii
+    self.query = ActiveSupport::Inflector.transliterate(query).to_s
+  end
+  
+  def linked
+    link0 = Link.where(url: nil).first
+    if self.link.nil?
+      self.link = link0
+      self.linked = false
+    else
+      self.linked = true
+    end
+  end
   # champs lexicaux des tags
   # TAGS = [ "Localisation", "Horaires", "Collaborateurs", "Métiers", "Réseaux Sociaux", "Clients", "Site web", "Evenement", "Recrutement", "Contact"]
 LOCALISATION = ["localisation", "emplacement", "gps", "localiser", "lieu", "lieux", "adresse", "position", "situer", "situe", "situez", "implantation", "implanter", 
@@ -34,19 +47,6 @@ CONTACT = ["contact", "contacter", "joindre", "adresse mail", "email", "rencontr
 "joignable", "messagerie", "numero", "reclamation", "renseignement", "appeler", "appel", "appelez"]
 
 
-  def to_ascii
-    self.query = ActiveSupport::Inflector.transliterate(query).to_s
-  end
-
-  def linked
-    link0 = Link.where(url: nil).first
-    if self.link.nil?
-      self.link = link0
-      self.linked = false
-    else
-      self.linked = true
-    end
-  end
 
 
 end

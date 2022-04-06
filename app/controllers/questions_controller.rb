@@ -19,16 +19,18 @@ class QuestionsController < ApplicationController
 
   def ask
     @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
-    if @question.present?
-      redirect_to @question.link.url
+    if @question
+      flash.alert = "La question existe déjà en base !"
+      redirect_to questions_new_admin_path
     else
       @question = Question.new(question_params)
-      if params[:link] == nil
-        @newlink = Link.create!(url: questions_answer_path)
-        @question.link = @newlink
-      end
+      @link = params[:question][:link][:url]
+      @newlink = Link.create!(url: @link)
+      @question.link = @newlink
+      tag_list = params[:question][:tag_list]
+      @question.tag_list = tag_list
       @question.save!
-      redirect_to questions_answer_path
+      redirect_to questions_path
     end
   end
 
@@ -39,16 +41,16 @@ class QuestionsController < ApplicationController
 
 def create
   @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
-  if @question
-    flash.alert = "La question existe déjà en base !"
-    redirect_to questions_new_admin_path
+  if @question.present?
+    redirect_to @question.link.url
   else
     @question = Question.new(question_params)
-    @link = params[:question][:link][:url]
-    @newlink = Link.create!(url: @link)
-    @question.link = @newlink
+    if params[:link] == nil
+      @newlink = Link.create!(url: questions_answer_path)
+      @question.link = @newlink
+    end
     @question.save!
-    redirect_to questions_path
+    redirect_to questions_answer_path
   end
 end
 
