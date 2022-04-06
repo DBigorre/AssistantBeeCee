@@ -13,7 +13,7 @@ class Question < ApplicationRecord
   # champs lexicaux des tags
   # TAGS = [ "Localisation", "Horaires", "Collaborateurs", "Métiers", "Réseaux Sociaux", "Clients", "Site web", "Evenement", "Recrutement", "Contact"]
 LOCALISATION = ["localisation", "emplacement", "gps", "localiser", "lieu", "lieux", "adresse", "position", "situer", "situe", "situez", "implantation", "implanter", 
-"implantez", "localite", "ville", "pays", "code postal", "genipa", "parking", "alentour", "autour", "coordonnee", "coordonnees", "ducos", "martinique", "antilles"]
+"implantez", "localite", "ville", "pays", "code postal", "genipa", "parking", "alentour", "autour", "coordonnee", "coordonnees", "ducos", "martinique", "antilles", "locaux"]
 HORAIRES = ["horaire", "horaires","fuseau", "heure", "ouverture", "fermeture", "heure", "heures", "matin", "apres-midi", "apres midi", "soir",
 "matinee", "week-end", "week end", "midi", "minute", "minutes", "seconde", "secondes", "creneau"]
 COLLABORATEUR = ["collaborateurs","collaborateur", "collaboration", "employes", "employe", "gerant", "directeur", "directeur de clientele", "directrice de clientele", 

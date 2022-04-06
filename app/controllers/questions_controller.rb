@@ -71,10 +71,13 @@ end
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
+    redirect_to questions_path
   end
 
   def answer
+    @question = Question.last
     @questions = Question.all
+    
   end
 
   private

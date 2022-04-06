@@ -1,9 +1,66 @@
-<h1>Nous n'avons pas trouvé de réponse exacte à votre question</h1>
+<div class="container-home">
+  <div class="header">
+    <h1>Nous n'avons pas trouvé de réponse exacte à votre question</h1>
 
-<h2>Nos suggestions :</h2>
- <% @questions.each do |question|  %>
-  <p><%= question.query %></p>
-<% end %>
-<%# Ajouter des blocs de suggestion avec les tags%>
-<% if @question.include("Ou")
-  
+    <h2>Nos suggestions :</h2>
+  </div>
+    <%# Ajouter des blocs de suggestion avec les tags%>
+  <div class="grille">
+    <div class= "suggestions">
+      <% if Question::LOCALISATION.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("localisation") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %>
+      <% elsif Question::HORAIRES.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("horaires") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %>
+      <% elsif Question::COLLABORATEUR.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("collaborateur") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %>
+      <% elsif Question::METIER.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("metier") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %>
+      <% elsif Question::RESEAU_SOCIAL.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("reseau_social") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %> 
+      <% elsif Question::CLIENT.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("client") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %> 
+      <% elsif Question::SITE_WEB.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("site_web") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %> 
+      <% elsif Question::EVENEMENT.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("evenement") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %> 
+      <% elsif Question::RECRUTEMENT.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("recrutement") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %> 
+      <% elsif Question::CONTACT.include?(@question.query.split) %>
+          <%  @answer = Question.tagged_with("contact") %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
+          <% end %> 
+      <% else %> 
+          <% @questions.each do |question|  %>
+            <p><%= question.query %></p>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
