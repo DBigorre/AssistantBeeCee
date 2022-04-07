@@ -1,7 +1,7 @@
 <div class="box-login">
   <h4>Vous pouvez créer une question</h4>
   <div class="simpleform-admin">
-    <%= simple_form_for(@question) do |f|  %>
+    <%= simple_form_for @question, url:ask_path do |f|  %>
       <%= f.input :query, placeholder: "nouvelle question", label:false %>
       <%= f.simple_fields_for :link do |l| %>
         <%= l.input :url, placeholder: "nouvelle url", label:false%>
