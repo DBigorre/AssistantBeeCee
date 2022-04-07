@@ -32,37 +32,38 @@
           <%  @answer = Question.tagged_with("Réseaux Sociaux") %>
           <% @answer.each do |answer| %>
             <p><%= answer.query %></p>
-          <% end %> 
+          <% end %>
       <% elsif Question::CLIENT.include?(query) %>
           <%  @answer = Question.tagged_with("Clients") %>
           <% @answer.each do |answer| %>
             <p><%= answer.query %></p>
-          <% end %> 
+          <% end %>
       <% elsif Question::SITE_WEB.include?(query) %>
           <%  @answer = Question.tagged_with("Site web") %>
           <% @answer.each do |answer| %>
             <p><%= answer.query %></p>
-          <% end %> 
+          <% end %>
       <% elsif Question::EVENEMENT.include?(query) %>
           <%  @answer = Question.tagged_with("Evenement") %>
           <% @answer.each do |answer| %>
             <p><%= answer.query %></p>
-          <% end %> 
+          <% end %>
       <% elsif Question::RECRUTEMENT.include?(query) %>
           <%  @answer = Question.tagged_with("Recrutement") %>
           <% @answer.each do |answer| %>
             <p><%= answer.query %></p>
-          <% end %> 
+          <% end %>
       <% elsif Question::CONTACT.include?(query) %>
           <%  @answer = Question.tagged_with("Contact") %>
           <% @answer.each do |answer| %>
             <p><%= answer.query %></p>
-          <% end %> 
-      <% else %> 
+          <% end %>
+      <% else %>
           <% @questions.each do |question|  %>
             <p><%= question.query %></p>
           <% end %>
       <% end %>
+    <% end %>
     </div>
   </div>
 </div>
