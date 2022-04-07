@@ -3,7 +3,7 @@
   <div class="containernewformulaire" >
     <div class="imgformulaire">
       <div class="formulairebarrederecherche">
-        <%= simple_form_for(@question) do |f| %>
+        <%= simple_form_for @question do |f| %>
           <%= f.input :query, label: false, placeholder: "Posez votre question" %>
           <%= f.button :submit, class: "btn-primary", value: "Rechercher" %>
         <% end %>

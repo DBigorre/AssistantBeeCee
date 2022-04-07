@@ -1,12 +1,13 @@
 <div class="container-home">
   <div class="header">
     <h1>Nous n'avons pas trouvé de réponse exacte à votre question</h1>
-
+    
     <h2>Nos suggestions :</h2>
   </div>
     <%# Ajouter des blocs de suggestion avec les tags%>
   <div class="grille">
     <div class= "suggestions">
+    
       <% if Question::LOCALISATION.include?(@question.query.split) %>
           <%  @answer = Question.tagged_with("localisation") %>
           <% @answer.each do |answer| %>
@@ -64,3 +65,4 @@
       <% end %>
     </div>
   </div>
+</div>
