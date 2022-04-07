@@ -1,7 +1,7 @@
 <div class="container-home">
   <div class="header">
     <h1>Nous n'avons pas trouvé de réponse exacte à votre question</h1>
-    
+
     <h2>Nos suggestions :</h2>
   </div>
     <%# Ajouter des blocs de suggestion avec les tags%>
@@ -13,66 +13,69 @@
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-            
+
         <% elsif Question::HORAIRES.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Horaires") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-          
+
         <% elsif Question::COLLABORATEUR.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Collaborateurs") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-         
+
         <% elsif Question::METIER.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Métiers") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-         
+
         <% elsif Question::RESEAU_SOCIAL.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Réseaux Sociaux") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-          
+
         <% elsif Question::CLIENT.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Clients") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-          
+
         <% elsif Question::SITE_WEB.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Site web") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-          
+
         <% elsif Question::EVENEMENT.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Evenement") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-         
+
         <% elsif Question::RECRUTEMENT.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Recrutement") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
             <% end %>
-           
+
         <% elsif Question::CONTACT.include?(@question.query.split) %>
             <%  @answer = Question.tagged_with("Contact") %>
             <% @answer.each do |answer| %>
               <p><%= answer.query %></p>
-            <% end %> 
-         
-        <% @questions.each do |question|  %>
-              <p><%= question.query %></p>
+
             <% end %>
+
+            <% @questions.each do |question|  %>
+                <p><%= question.query %></p>
+            <% end %> 
+              
+           <% end %>
         <% end %>
-      <% end %>
+    
     </div>
   </div>
 </div>
