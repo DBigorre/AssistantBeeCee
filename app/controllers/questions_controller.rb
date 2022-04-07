@@ -8,6 +8,9 @@ class QuestionsController < ApplicationController
         OR links.url ILIKE :search \
         "
       @questions = Question.joins(:link).where(query, search: "%#{params[:search]}%").order('created_at DESC')
+    elsif params[:search_tag]
+      @filter = params[:search_tag][:tags]
+      @questions = @filter.empty? ? Question.all : Question.all.tagged_with(@filter, any: true)
     else
       @questions = Question.all.order('created_at DESC')
     end
@@ -79,7 +82,7 @@ end
   def answer
     @question = Question.last
     @questions = Question.all
-    
+
   end
 
   private

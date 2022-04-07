@@ -13,6 +13,16 @@
         <%= submit_tag "Rechercher", class: "btn btn-primary" %>
       </div>
       <% end %>
+
+    <div class="col">
+      <div class="dropdown">
+        <%= simple_form_for :search_tag, url: questions_path, method: :get do |f| %>
+        <%= f.select :tags, $tags.map { |tag| [tag] } , {prompt: "Tags"}, {class: 'form-dropdown'}%>
+        <%= f.submit "Filtrer", class: "btn btn-primary" %>
+        <%= link_to "Reset", questions_path  %>
+      <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="grille">
