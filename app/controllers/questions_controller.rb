@@ -49,7 +49,7 @@ def create
   else
     @question = Question.new(question_params)
     if params[:link] == nil
-      @newlink = Link.create!(url: questions_answer_path)
+      @newlink = Link.create!(url: "  ")
       @question.link = @newlink
     end
     @question.save!
