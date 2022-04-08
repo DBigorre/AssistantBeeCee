@@ -4,11 +4,12 @@
 
     <h2>Nos suggestions :</h2>
   </div>
-    <%# Ajouter des blocs de suggestion avec les tags%>
+  
   <div class="grille">
     <div class= "suggestions">
-      <% @question.query.split.each do |query| %>
-    
+<%# Ajouter des blocs de suggestion avec les tags%>
+      
+      <% @question.query.chomp('?').split.each do |query| %>
       <% if Question::LOCALISATION.include?(query) %>
           <%  @answer = Question.tagged_with("Localisation") %>
           <% @answer.each do |answer| %>
