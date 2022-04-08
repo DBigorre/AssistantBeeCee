@@ -8,6 +8,7 @@
   <div class="grille">
     <div class= "suggestions">
       <% @question.query.split.each do |query| %>
+    
       <% if Question::LOCALISATION.include?(query) %>
           <%  @answer = Question.tagged_with("Localisation") %>
           <% @answer.each do |answer| %>
@@ -58,12 +59,13 @@
           <% @answer.each do |answer| %>
             <p><%= answer.query %></p>
           <% end %>
-      <% else %>
-          <% @questions.each do |question|  %>
-            <p><%= question.query %></p>
+      <% elsif query == @question.query.split.last && @answer == nil %>
+          <%  @answer = Question.all %>
+          <% @answer.each do |answer| %>
+            <p><%= answer.query %></p>
           <% end %>
       <% end %>
-    <% end %>
+    <% end %>         
     </div>
   </div>
 </div>

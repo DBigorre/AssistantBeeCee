@@ -44,12 +44,14 @@ class QuestionsController < ApplicationController
 
 def create
   @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
-  if @question.present?
+  if @question.present? && @question.link.url.include?("http")
     redirect_to @question.link.url
+  elsif @question.present?
+    redirect_to questions_answer_path
   else
     @question = Question.new(question_params)
     if params[:link] == nil
-      @newlink = Link.create!(url:questions_answer_path)
+      @newlink = Link.create!(url: "   ")
       @question.link = @newlink
       @question.save!
     end
