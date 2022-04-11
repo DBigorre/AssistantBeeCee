@@ -1,15 +1,4 @@
 <div class="container-home">
-  <div class="intro">
-    <div class="col-4">
-    <%= simple_form_for @question do |f| %>
-      <%= f.input :query, label: false, placeholder: "Posez votre question", spellcheck:"true" %>
-    </div>
-    <div class="boitebouton">
-      <%= f.button :submit, class: "btn-primary", value: "Rechercher" %>
-    <% end %>
-    </div>
-  </div>
-
     <div class="noresult">
       <p> Nous n'avons pas trouvé de réponse à votre question </p>
       <span style='font-size:20px;'>&#128533;</span>
