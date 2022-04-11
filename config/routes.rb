@@ -9,7 +9,5 @@ Rails.application.routes.draw do
 
   resources :questions, except: [:show, :create]
   post "questions", to: "questions#create"
-
   get "questions/answer", to: "questions#answer"
-  get "questions/answer/new", to: "questions#answer"
 end
