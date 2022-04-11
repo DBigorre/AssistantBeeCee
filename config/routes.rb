@@ -4,16 +4,12 @@ Rails.application.routes.draw do
   get "questions/new_admin", to: "questions#new_admin"
   post "questions/new_admin", to: "questions#ask", as: :ask
   root to: 'questions#new'
-      
-   
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :questions, except: [:show, :create]
   post "questions", to: "questions#create"
 
   get "questions/answer", to: "questions#answer"
-  
-
+  get "questions/answer/new", to: "questions#answer"
 end
-  
