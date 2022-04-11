@@ -61,7 +61,8 @@
               <p><%= link_to answer.query, answer.link.url %></p>
                 <% end %>
             <% elsif query == @question.query.split.last && @answer == nil %>
-                <%  @answer = Question.last(10) %>
+                <%  @answeroffset = Question.offset(1) %>
+                <% @answer = @answeroffset.last(10) %>
                 <% @answer.each do |answer| %>
                 <p><%= link_to answer.query, answer.link.url %></p>
                 <% end %>
