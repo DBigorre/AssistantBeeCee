@@ -9,7 +9,7 @@
       <p> Nos suggestions :</p>
         <div class="questions">
         
-        <% @question.query.chomp("?").split.each do |query| %>
+        <% @question.query.split.each do |query| %>
        
             <% if Question::LOCALISATION.include?(query) %>
                 <% @answer = Question.tagged_with("Localisation") %>
