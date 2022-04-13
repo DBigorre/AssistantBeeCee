@@ -53,22 +53,22 @@ class QuestionsController < ApplicationController
       if @question.present? && @question.link.url.include?("http") 
         redirect_to @question.link.url
       elsif @question.present? 
-        redirect_to questions_answer_path
-      elsif queryp.present? == false
-        @question = Question.new(question_params)
-        if params[:link] == nil 
-          @newlink = Link.create!(url: "   ")
-          @question.link = @newlink
-          @question.save!
-        end
+        redirect_to questions_answer_path        
       else
         Question.all.each do |question|
           if question.query.parameterize(separator: ' ') == queryp
             @question = question 
             redirect_to @question.link.url and return
+          else
+            @question = Question.new(question_params)
+            if params[:link] == nil 
+              @newlink = Link.create!(url: "   ")
+              @question.link = @newlink
+              @question.save!
+              redirect_to questions_answer_path and return
+            end
           end
         end
-        redirect_to questions_answer_path 
   end
 end
 
