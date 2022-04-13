@@ -18,7 +18,6 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    
   end
 
   def ask
@@ -43,20 +42,33 @@ class QuestionsController < ApplicationController
     @link = Link.new
   end
 
-def create
-  @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
-  if @question.present? && @question.link.url.include?("http")
-    redirect_to @question.link.url
-  elsif @question.present?
-    redirect_to questions_answer_path
-  else
-    @question = Question.new(question_params)
-    if params[:link] == nil
-      @newlink = Link.create!(url: "   ")
-      @question.link = @newlink
-      @question.save!
-    end
-    redirect_to questions_answer_path
+  def to_ascii
+    Question.query = ActiveSupport::Inflector.transliterate(query).to_s
+  end
+
+  def create
+      queryp = params[:question][:query]
+      queryp = queryp.parameterize(separator: ' ')
+      @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
+      if @question.present? && @question.link.url.include?("http") 
+        redirect_to @question.link.url
+      elsif @question.present? 
+        redirect_to questions_answer_path
+      elsif queryp.present? == false
+        @question = Question.new(question_params)
+        if params[:link] == nil 
+          @newlink = Link.create!(url: "   ")
+          @question.link = @newlink
+          @question.save!
+        end
+      else
+        Question.all.each do |question|
+          if question.query.parameterize(separator: ' ') == queryp
+            @question = question 
+            redirect_to @question.link.url and return
+          end
+        end
+        redirect_to questions_answer_path 
   end
 end
 
