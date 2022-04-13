@@ -2,6 +2,7 @@ class Question < ApplicationRecord
   acts_as_taggable_on :tags
   belongs_to :link
   before_validation :to_ascii
+  before_create :to_ascii
   before_validation :linked
 
   include PgSearch::Model
