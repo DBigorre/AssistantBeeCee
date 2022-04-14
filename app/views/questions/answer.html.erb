@@ -10,7 +10,6 @@
         <div class="questions">
         
         <% @question.query.split.each do |query| %>
-       
             <% if Question::LOCALISATION.include?(query) %>
                 <% @answer = Question.tagged_with("Localisation") %>
                 <% @answer.each do |answer| %>

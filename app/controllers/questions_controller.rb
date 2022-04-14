@@ -49,28 +49,32 @@ class QuestionsController < ApplicationController
   def create
       queryp = params[:question][:query]
       queryp = queryp.parameterize(separator: ' ')
+      queryp = queryp.chomp("?")
       @question = Question.find_by("query ILIKE ?", "%#{params[:question][:query]}%")
-      if @question.present? && @question.link.url.include?("http") 
-        redirect_to @question.link.url
-      elsif @question.present? 
-        redirect_to questions_answer_path        
-      else
+      if @question.present?
+        if @question.link.url.include?("http") 
+          redirect_to @question.link.url and return
+        elsif @question.present? 
+          redirect_to questions_answer_path and return
+        end
+      elsif Question.all.include?(queryp)
         Question.all.each do |question|
           if question.query.parameterize(separator: ' ') == queryp
+            raise
             @question = question 
             redirect_to @question.link.url and return
-          else
-            @question = Question.new(question_params)
-            if params[:link] == nil 
-              @newlink = Link.create!(url: "   ")
-              @question.link = @newlink
-              @question.save!
-              redirect_to questions_answer_path and return
-            end
           end
         end
+      else
+        @question = Question.new(question_params)
+        if params[:link] == nil 
+          @newlink = Link.create!(url: "   ")
+          @question.link = @newlink
+          @question.save!
+          redirect_to questions_answer_path and return
+        end
+      end
   end
-end
 
   def edit
     @question = Question.find(params[:id])
